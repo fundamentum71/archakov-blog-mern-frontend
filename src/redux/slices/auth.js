@@ -14,7 +14,11 @@ const initialState = {
 const authSlice = createSlice({
 	name: 'auth',
 	initialState,
-	reducers: {},
+	reducers: {
+		logout: (state) => {
+			state.data = null;
+		},
+	},
 	//описание ассинхронного экшена
 	extraReducers: {
 		//
@@ -33,4 +37,9 @@ const authSlice = createSlice({
 	},
 });
 
+//авторизован ли пользователь
+export const selectIsAuth = (state) => Boolean(state.auth.data);
+
 export const authReducer = authSlice.reducer;
+
+export const { logout } = authSlice.actions;
