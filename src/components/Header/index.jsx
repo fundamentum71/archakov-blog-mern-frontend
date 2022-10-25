@@ -15,6 +15,8 @@ export const Header = () => {
 		if (window.confirm('Вы действительно хотите выйти из аккаунта?')) {
 			//выход из аккаунта
 			dispatch(logout());
+			//удаление токена из localStorage
+			window.localStorage.removeItem('token');
 		}
 	};
 
