@@ -9,11 +9,13 @@ import { Post } from '../components/Post';
 import { TagsBlock } from '../components/TagsBlock';
 import { CommentsBlock } from '../components/CommentsBlock';
 import { fetchPosts, fetchTags } from '../redux/slices/posts';
+import { fetchAuthMe } from '../redux/slices/auth';
 
 export const Home = () => {
-	const { posts, tags } = useSelector((state) => state.posts);
 	//проверяем, что это тот пользователь что сделал пост
 	const userData = useSelector((state) => state.auth.data);
+
+	const { posts, tags } = useSelector((state) => state.posts);
 
 	const dispatch = useDispatch();
 
